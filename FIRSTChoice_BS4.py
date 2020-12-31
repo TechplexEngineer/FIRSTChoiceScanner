@@ -63,6 +63,6 @@ for id in productids:
     row = [idurl, id[1:], name, description, source, sourcePN, onhand, onhold, available, price, maxqty]
     rows.append(row)
 
-with open("FirstChoice.csv", mode='w', newline='') as file:
+with open("FirstChoice.csv", mode='w', newline='', encoding='utf-8') as file:
     file_writer = csv.writer(file)
     file_writer.writerows(rows)

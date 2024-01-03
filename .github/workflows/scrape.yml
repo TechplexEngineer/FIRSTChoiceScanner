@@ -30,7 +30,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run script
-        run: python firstcoice_bs4.py
+        run: python FIRSTChoice_BS4.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2

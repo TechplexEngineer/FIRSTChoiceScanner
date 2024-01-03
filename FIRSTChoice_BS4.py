@@ -16,6 +16,9 @@ for link in mydivs:
     productid = link.find('a').attrs['href']
     productids.append(productid)
 
+productids.sort()
+
+
 headers = ["Webpage", "FC Part ID", "Item", "Description", "Source", "Source Part Number", "onhand", "onhold", "available", "Credits Price", "Max Qty"]
 rows = [headers]
 for id in productids:

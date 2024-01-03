@@ -2,6 +2,12 @@ name: Scrape FIRSTChoice
 
 on:
   workflow_dispatch:
+    inputs:
+      Message:
+        # Friendly description to be shown in the UI
+        description: 'Commit messsage. If blank timestamp is used.'
+        type: string
+
   
   schedule:
     - cron: '0 13 * * *'
@@ -38,5 +44,10 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A
           timestamp=$(date)
-          git commit -m "First Choice as of ${timestamp}" || exit 0
+          message="${{ github.event.inputs.Message }}"
+          if [ -z "$message" ]
+          then
+            message="First Choice as of ${timestamp}"
+          fi
+          git commit -m "${message}" || exit 0
           git push
